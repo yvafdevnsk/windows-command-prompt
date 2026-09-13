@@ -106,3 +106,36 @@ config
 HEAD
 index
 ```
+
+## 環境変数 Path の内容を表示する
+
+実行するコマンド
+```
+echo %Path%
+```
+
+[Microsoftのサイトにあるpathコマンドの説明](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/path)
+
+## 環境変数 Path の内容に指定した検索語が完全一致で含まれるかを確認する
+
+実行するコマンド
+```
+echo %Path% | findstr /c:"apple peach grape"
+```
+
+コマンドの実行結果は、「apple peach grape」という連続した文字列が含まれる場合のみ環境変数 Path の内容が表示される。「/c」オプションで検索語を指定した場合は空白は検索語の区切りにはならない。  
+  
+[Microsoftのサイトにあるfindstrコマンドの説明](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr)  
+/c => Uses the specified text as a literal search string.
+
+## 環境変数 Path の内容に指定した検索語の何れかが含まれるかを確認する
+
+実行するコマンド
+```
+echo %Path% | findstr "apple peach grape"
+```
+
+コマンドの実行結果は、「apple」または「peach」または「grape」の何れかの文字列が含まれる場合のみ環境変数 Path の内容が表示される。空白が検索語の区切りになる。  
+  
+[Microsoftのサイトにあるfindstrコマンドの説明](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr)  
+Use spaces to separate multiple search strings unless the argument is prefixed with /c.
