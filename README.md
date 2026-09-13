@@ -139,3 +139,26 @@ echo %Path% | findstr "apple peach grape"
   
 [Microsoftのサイトにあるfindstrコマンドの説明](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr)  
 Use spaces to separate multiple search strings unless the argument is prefixed with /c.
+
+## カレントディレクトリまたは環境変数 Path の場所を探して、指定したファイルが存在する場所を表示する
+
+実行するコマンド
+```
+where [ファイル名]
+```
+
+[Microsoftのサイトにあるwhereコマンドの説明](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/where)  
+By default, where searches the current directory and the paths that are specified in the PATH environment variable.  
+
+以下にコマンドの実行結果を示す。  
+ファイル名として「notepad」を指定してコマンドを実行する。
+```
+where notepad
+```
+
+コマンドの実行結果は環境変数 Path の場所から複数の場所が表示された。
+```
+C:\Windows\System32\notepad.exe
+C:\Windows\notepad.exe
+C:\Users\<UserName>\AppData\Local\Microsoft\WindowsApps\notepad.exe
+```
